@@ -13,7 +13,7 @@ class BinarySearchTree {
     //BigO notation: Average case: O(log(n)), worse case (unbalanced tree): O(n)
     //Best case: O(1), empty tree
     // If the tree is empty then this key being inserted is the root node of the tree
-    if (this.key === null) {
+    if (!this.key) {
       this.key = key;
       this.value = value;
     } else if (key < this.key) {
@@ -25,7 +25,7 @@ class BinarySearchTree {
            meaning that if the `left` pointer is empty, 
            then we can just instantiate and insert the new node 
            as the left child of that node, passing `this` as the parent */
-      if (this.left === null) {
+      if (!this.left) {
         this.left = new BinarySearchTree(key, value, this);
       } else {
         /* If the node has an existing left child, 
@@ -38,7 +38,7 @@ class BinarySearchTree {
     // Similarly, if the new key is greater than the node's key
     //  then you do the same thing, but on the right-hand side
     else {
-      if (this.right === null) {
+      if (!this.right) {
         this.right = new BinarySearchTree(key, value, this);
       } else {
         this.right.insert(key, value);
